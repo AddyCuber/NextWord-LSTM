@@ -22,13 +22,17 @@ Project Structure
 Installation & Usage
 
 1. Clone the Repository
+   ```python
    git clone https://github.com/AddyCuber/NextWord-LSTM.git
    cd NextWord-LSTM
 
-2. Install Dependencies
+3. Install Dependencies
+   ```python
    pip install tensorflow numpy pandas nltk scikit-learn
 
-3. Load the Model & Tokenizer
+5. Load the Model & Tokenizer
+   ```python
+
    import pickle
    import tensorflow as tf
    from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -40,7 +44,9 @@ Installation & Usage
    with open("tokenizer.pkl", "rb") as f:
      tokenizer = pickle.load(f)
 
-4. Predict the Next Word
+7. Predict the Next Word
+   ```python
+
     def predict_next_word(model, tokenizer, text, max_sequence_len):
         token_list = tokenizer.texts_to_sequences([text])[0]
         token_list = pad_sequences([token_list], maxlen=max_sequence_len-1, padding="pre")
